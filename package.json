@@ -1,0 +1,39 @@
+{
+  "name": "mcp-server-private-user-context",
+  "version": "1.0.0",
+  "description": "MCP server for managing private user context and PII",
+  "type": "module",
+  "main": "build/server.js",
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/server.js', '755')\"",
+    "start": "node build/server.js",
+    "dev": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cam10001110101/mcp-server-private-user-context.git"
+  },
+  "keywords": [
+    "mcp",
+    "privacy",
+    "context",
+    "pii"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cam10001110101/mcp-server-private-user-context/issues"
+  },
+  "homepage": "https://github.com/Cam10001110101/mcp-server-private-user-context#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "better-sqlite3": "^9.0.0",
+    "crypto-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/crypto-js": "^4.2.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
