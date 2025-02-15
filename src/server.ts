@@ -3,13 +3,26 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { randomBytes } from 'crypto';
 import path from 'path';
+import { mkdir } from 'fs/promises';
 import { PersonalContextDB } from './db.js';
 import { AddPersonalInfoInput, UpdatePersonalInfoInput, GetPersonalInfoInput, PersonalContextError } from './types.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 
 // Initialize database with a random encryption key
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY || randomBytes(32).toString('hex');
-const DB_PATH = process.env.DB_PATH || path.join(process.cwd(), 'personal_context.db');
+if (!process.env.ENCRYPTION_KEY) {
+  throw new Error('ENCRYPTION_KEY environment variable is required');
+}
+
+if (!process.env.DB_PATH) {
+  throw new Error('DB_PATH environment variable is required');
+}
+
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY;
+const DB_PATH = process.env.DB_PATH;
+
+// Ensure database directory exists
+const dbDir = path.dirname(DB_PATH);
+await mkdir(dbDir, { recursive: true });
 
 const db = new PersonalContextDB(DB_PATH, ENCRYPTION_KEY);
 

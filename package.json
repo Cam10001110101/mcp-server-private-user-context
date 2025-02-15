@@ -5,7 +5,7 @@
   "type": "module",
   "main": "build/server.js",
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/server.js', '755')\"",
+    "build": "tsc && node --eval \"import('fs').then(fs => fs.chmodSync('build/server.js', '755'))\"",
     "start": "node build/server.js",
     "dev": "tsc -w"
   },
