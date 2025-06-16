@@ -27,7 +27,7 @@
   "homepage": "https://github.com/Cam10001110101/mcp-server-private-user-context#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "sql.js": "^1.8.0",
+    "sql.js": "^1.13.0",
     "crypto-js": "^4.2.0",
     "jsonwebtoken": "^9.0.0"
   },
