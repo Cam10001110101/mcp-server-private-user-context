@@ -29,7 +29,7 @@
     "@modelcontextprotocol/sdk": "^1.0.0",
     "sql.js": "^1.8.0",
     "crypto-js": "^4.2.0",
-    "jsonwebtoken": "^9.0.0"
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
     "@types/sql.js": "^1.4.9",
